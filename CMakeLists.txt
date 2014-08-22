@@ -2,6 +2,16 @@ cmake_minimum_required(VERSION 2.8.11)
 
 project(StackManagerQt)
 
+if (WIN32)
+  set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1 ")
+endif(WIN32)
+
+if (NOT QT_CMAKE_PREFIX_PATH)
+  set(QT_CMAKE_PREFIX_PATH $ENV{QT_CMAKE_PREFIX_PATH})
+endif ()
+
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_CMAKE_PREFIX_PATH})
+
 set(CMAKE_AUTOMOC ON)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/")
